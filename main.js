@@ -9,7 +9,6 @@ searchbox.addEventListener("keypress", setQuery)
 function setQuery(evt) {
   if (evt.keyCode == 13) {
     getResults(searchbox.value)
-    console.log(searchbox.value)
   }
 }
 
@@ -19,4 +18,10 @@ function getResults(query) {
       return weather.json()
     })
     .then(displayResults)
+}
+
+function displayResults(weather) {
+  console.log(weather)
+  let city = document.querySelector(".location .city")
+  city.innerText = `${weather.name}, ${weather.sys.country}`
 }
