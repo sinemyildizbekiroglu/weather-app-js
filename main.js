@@ -1,6 +1,6 @@
 const api = {
-  key: "41dbca3720e02fc42427ad1fe2655dd6",
-  baseurl: "https://api.openweathermap.org/data/2.5/",
+  key: "c96c7b59b26dc2a368320a4cb2c722b9",
+  base: "https://api.openweathermap.org/data/2.5/",
 }
 
 const searchbox = document.querySelector(".search-box")
@@ -24,4 +24,8 @@ function displayResults(weather) {
   console.log(weather)
   let city = document.querySelector(".location .city")
   city.innerText = `${weather.name}, ${weather.sys.country}`
+
+  let now = new Date()
+  let date = document.querySelector(".location .date")
+  date.innerText = dateBuilder(now)
 }
